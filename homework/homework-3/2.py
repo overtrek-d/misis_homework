@@ -8,6 +8,9 @@ for i in seq:
         pass
     elif i in '[(':
         stack.append(i)
+    elif i in ')]' and len(stack) == 0:
+        print('No')
+        exit()
     elif i in '])' and (i == ')' and stack[-1] == '(' or i == ']' and stack[-1] == '['):
         stack.pop()
     else:
