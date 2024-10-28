@@ -4,7 +4,9 @@ seq = input()
 stack = []
 
 for i in seq:
-    if i in '[(':
+    if i not in '()[]':
+        pass
+    elif i in '[(':
         stack.append(i)
     elif i in '])' and (i == ')' and stack[-1] == '(' or i == ']' and stack[-1] == '['):
         stack.pop()
