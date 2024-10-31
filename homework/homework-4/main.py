@@ -1,5 +1,4 @@
 # Добавил еще остаток от деления
-
 class Customfloat:
 
     @staticmethod  # Алгорим Евклида
