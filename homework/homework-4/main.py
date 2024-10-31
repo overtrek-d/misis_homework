@@ -84,3 +84,10 @@ class Customfloat:
             return self.num * other.denum > self.denum * other.num
         else:
             return False
+
+    def __le__(self, other):  # <=
+        return self < other or self == other
+
+    def __ge__(self, other):  # >=
+        return self > other or self == other
+
