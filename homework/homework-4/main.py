@@ -67,3 +67,9 @@ class Customfloat:
                 raise ZeroDivisionError("division by zero")
             else:
                 return Customfloat(self.num % (other * self.denum), self.denum)
+
+    def __eq__(self, other):  # ==
+        if isinstance(other, Customfloat):
+            return self.num * other.denum == self.denum * other.num
+        else:
+            return False
