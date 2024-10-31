@@ -1,17 +1,16 @@
 # Добавил еще остаток от деления
 class Customfloat:
 
-    @staticmethod  # Алгорим Евклида
+    @staticmethod  # НОД
     def get_nod(a, b):
         if a < 0:
-            a *= -1
+            a = -a
         if b < 0:
-            b *= -1
-        while a != b:
-            if a > b:
-                a -= b
-            else:
-                b -= a
+            b = -b
+        while b != 0:
+            a, b = b, a % b
+        if a == 0:
+            return 1
         return a
 
     def __init__(self, num: int, denum: int):
@@ -71,5 +70,17 @@ class Customfloat:
     def __eq__(self, other):  # ==
         if isinstance(other, Customfloat):
             return self.num * other.denum == self.denum * other.num
+        else:
+            return False
+
+    def __lt__(self, other):  # <
+        if isinstance(other, Customfloat):
+            return self.num * other.denum < self.denum * other.num
+        else:
+            return False
+
+    def __gt__(self, other):  # >
+        if isinstance(other, Customfloat):
+            return self.num * other.denum > self.denum * other.num
         else:
             return False
