@@ -20,6 +20,9 @@ class Customfloat:
 
     def __str__(self):
         nod = self.get_nod(self.num, self.denum)
+        if self.denum < 0:
+            self.denum *= -1
+            self.num *= -1
         return f'{self.num // nod}\\{self.denum // nod}'
 
     def __add__(self, other):  # +
@@ -71,23 +74,22 @@ class Customfloat:
         if isinstance(other, Customfloat):
             return self.num * other.denum == self.denum * other.num
         else:
-            return False
+            return self.num/self.denum == other
 
     def __lt__(self, other):  # <
         if isinstance(other, Customfloat):
             return self.num * other.denum < self.denum * other.num
         else:
-            return False
+            return self.num / self.denum < other
 
     def __gt__(self, other):  # >
         if isinstance(other, Customfloat):
             return self.num * other.denum > self.denum * other.num
         else:
-            return False
+            return self.num / self.denum > other
 
     def __le__(self, other):  # <=
         return self < other or self == other
 
     def __ge__(self, other):  # >=
         return self > other or self == other
-
