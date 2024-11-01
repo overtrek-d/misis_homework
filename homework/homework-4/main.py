@@ -15,6 +15,8 @@ class Customfloat:
 
     def __init__(self, num: int, denum: int):
         nod = self.get_nod(num, denum)
+        if denum == 0:
+            raise ZeroDivisionError
         self.num = num // nod
         self.denum = denum // nod
 
