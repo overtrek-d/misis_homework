@@ -95,3 +95,6 @@ class Customfloat:
 
     def __ge__(self, other):  # >=
         return self > other or self == other
+
+    def __neg__(self): # -=
+        return self * -1
